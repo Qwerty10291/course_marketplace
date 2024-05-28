@@ -1,0 +1,10 @@
+@page "{id:int}"
+@model course_marketplace.Pages.ContentDetailsModel
+@{
+    ViewData["Title"] = "Content Details";
+}
+
+<h1>@Model.Content.Title</h1>
+<div>
+    @Html.Raw(@Model.MarkdownContent)
+</div>

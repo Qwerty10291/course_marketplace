@@ -1,10 +1,55 @@
 ﻿@page
-@model IndexModel
+@model course_marketplace.Pages.IndexModel
 @{
-    ViewData["Title"] = "";
+    ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Courses</h1>
+
+<form method="get">
+    <div class="form-group">
+        <input type="text" name="SearchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Search courses" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model.Courses)
+        {
+            <tr>
+                <td>@course.Title</td>
+                <td>@course.Description</td>
+                <td>@course.Price.ToString("C")</td>
+                <td>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (course.IsEnrolled)
+                        {
+                            <span>Enrolled</span>
+                        }
+                        else
+                        {
+                            <form method="post" asp-page-handler="Enroll">
+                                <input type="hidden" name="courseId" value="@course.CourseId" />
+                                <button type="submit" class="btn btn-primary">Enroll</button>
+                            </form>
+                        }
+                    }
+                    else
+                    {
+                        <span>Login to enroll</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

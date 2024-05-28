@@ -42,7 +42,7 @@
                 <td>@content.Title</td>
                 <td>@content.Type</td>
                 <td>
-                    <a asp-page="/EditContent" asp-route-id="@content.ContentId" class="btn btn-secondary">Edit</a>
+                    <a asp-page="/User/EditContent" asp-route-id="@content.ContentId" class="btn btn-secondary">Edit</a>
                     <form method="post" asp-page-handler="DeleteContent" asp-route-id="@content.ContentId" style="display:inline">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
@@ -51,4 +51,4 @@
         }
     </tbody>
 </table>
-<a asp-page="/AddContent" asp-route-courseId="@Model.Course.CourseId" class="btn btn-success">Add Content</a>
+<a asp-page="/User/AddContent" asp-route-courseId="@Model.Course.CourseId" class="btn btn-success">Add Content</a>

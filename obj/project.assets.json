@@ -640,6 +640,19 @@
           }
         }
       },
+      "Markdig/0.37.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Markdig.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Markdig.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/8.0.5": {
         "type": "package",
         "compile": {
@@ -3862,6 +3875,29 @@
         "lib/netstandard1.0/zh-Hant/Humanizer.resources.dll",
         "lib/netstandard2.0/zh-Hant/Humanizer.resources.dll",
         "logo.png"
+      ]
+    },
+    "Markdig/0.37.0": {
+      "sha512": "biiu4MTPFjW55qw6v5Aphtj0MjDLJ14x8ndZwkJUHIeqvaSGKeqhLY7S7Vu/S3k7/c9KwhhnaCDP9hdFNUhcNA==",
+      "type": "package",
+      "path": "markdig/0.37.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/Markdig.dll",
+        "lib/net462/Markdig.xml",
+        "lib/net6.0/Markdig.dll",
+        "lib/net6.0/Markdig.xml",
+        "lib/net8.0/Markdig.dll",
+        "lib/net8.0/Markdig.xml",
+        "lib/netstandard2.0/Markdig.dll",
+        "lib/netstandard2.0/Markdig.xml",
+        "lib/netstandard2.1/Markdig.dll",
+        "lib/netstandard2.1/Markdig.xml",
+        "markdig.0.37.0.nupkg.sha512",
+        "markdig.nuspec",
+        "markdig.png",
+        "readme.md"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/8.0.5": {
@@ -8557,6 +8593,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Markdig >= 0.37.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.5",
       "Microsoft.AspNetCore.Identity.UI >= 8.0.5",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.5",
@@ -8567,19 +8604,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/antazetdinov/.nuget/packages/": {}
+    "/home/ferret/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/antazetdinov/kpfu/course_marketplace/course_marketplace.csproj",
+      "projectUniqueName": "/home/ferret/kpfu/course_marketplace/course_marketplace.csproj",
       "projectName": "course_marketplace",
-      "projectPath": "/Users/antazetdinov/kpfu/course_marketplace/course_marketplace.csproj",
-      "packagesPath": "/Users/antazetdinov/.nuget/packages/",
-      "outputPath": "/Users/antazetdinov/kpfu/course_marketplace/obj/",
+      "projectPath": "/home/ferret/kpfu/course_marketplace/course_marketplace.csproj",
+      "packagesPath": "/home/ferret/.nuget/packages/",
+      "outputPath": "/home/ferret/kpfu/course_marketplace/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/antazetdinov/.nuget/NuGet/NuGet.Config"
+        "/home/ferret/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -8603,6 +8640,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Markdig": {
+            "target": "Package",
+            "version": "[0.37.0, )"
+          },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.0.5, )"
@@ -8655,7 +8696,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/8.0.1/libexec/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.105/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

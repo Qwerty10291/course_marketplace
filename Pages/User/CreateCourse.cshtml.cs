@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using course_marketplace.Models;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
 namespace course_marketplace.Pages
@@ -11,13 +10,13 @@ namespace course_marketplace.Pages
     public class CreateCourseView {
         [Required]
         [MinLength(1)]
-        public string Title;
+        public string Title { get; set; }
 
         [Required]
-        public string Description;
+        public string Description { get; set; }
         
         [Required]
-        public int Price;
+        public int Price { get; set; }
 
     }
 
@@ -57,7 +56,7 @@ namespace course_marketplace.Pages
             _context.Courses.Add(newCourse);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("/EditCourse", new { id = newCourse.CourseId });
+            return RedirectToPage("/User/EditCourse", new { id = newCourse.CourseId });
         }
     }
 }

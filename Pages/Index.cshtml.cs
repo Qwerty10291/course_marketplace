@@ -7,14 +7,9 @@ using course_marketplace.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace course_marketplace.Pages
 {
-    public class CourseViewModel : Course {
-        public bool IsEnrolled;
-    }
-    
     public class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _context;

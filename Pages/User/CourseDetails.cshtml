@@ -1,0 +1,27 @@
+@page "{id:int}"
+@model course_marketplace.Pages.CourseDetailsModel
+@{
+    ViewData["Title"] = "Course Details";
+}
+
+<h1>@Model.Course.Title</h1>
+<p>@Model.Course.Description</p>
+
+<h2>Contents</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var content in Model.CourseContents)
+        {
+            <tr>
+                <td><a asp-page="/User/ContentDetails" asp-route-id="@content.ContentId">@content.Title</a></td>
+                <td>@content.Type</td>
+            </tr>
+        }
+    </tbody>
+</table>

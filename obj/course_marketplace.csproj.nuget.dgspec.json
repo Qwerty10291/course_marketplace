@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/antazetdinov/kpfu/course_marketplace/course_marketplace.csproj": {}
+    "/home/ferret/kpfu/course_marketplace/course_marketplace.csproj": {}
   },
   "projects": {
-    "/Users/antazetdinov/kpfu/course_marketplace/course_marketplace.csproj": {
+    "/home/ferret/kpfu/course_marketplace/course_marketplace.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/antazetdinov/kpfu/course_marketplace/course_marketplace.csproj",
+        "projectUniqueName": "/home/ferret/kpfu/course_marketplace/course_marketplace.csproj",
         "projectName": "course_marketplace",
-        "projectPath": "/Users/antazetdinov/kpfu/course_marketplace/course_marketplace.csproj",
-        "packagesPath": "/Users/antazetdinov/.nuget/packages/",
-        "outputPath": "/Users/antazetdinov/kpfu/course_marketplace/obj/",
+        "projectPath": "/home/ferret/kpfu/course_marketplace/course_marketplace.csproj",
+        "packagesPath": "/home/ferret/.nuget/packages/",
+        "outputPath": "/home/ferret/kpfu/course_marketplace/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/antazetdinov/.nuget/NuGet/NuGet.Config"
+          "/home/ferret/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -38,6 +38,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Markdig": {
+              "target": "Package",
+              "version": "[0.37.0, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.5, )"
@@ -90,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/8.0.1/libexec/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.105/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

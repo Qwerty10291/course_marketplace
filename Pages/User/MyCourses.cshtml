@@ -24,7 +24,7 @@
                     <td>@course.Description</td>
                     <td>@course.Price.ToString("C")</td>
                     <td>
-                        <a asp-page="/EditCourse" asp-route-id="@course.CourseId" class="btn btn-primary">Edit</a>
+                        <a asp-page="/User/EditCourse" asp-route-id="@course.CourseId" class="btn btn-primary">Edit</a>
                     </td>
                 </tr>
             }
@@ -46,7 +46,7 @@ else
             @foreach (var course in Model.EnrolledCourses)
             {
                 <tr>
-                    <td>@course.Title</td>
+                    <td><a asp-page="/User/CourseDetails" asp-route-id="@course.CourseId">@course.Title</a></td>
                     <td>@course.Description</td>
                     <td>@course.Price.ToString("C")</td>
                 </tr>

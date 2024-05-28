@@ -30,7 +30,6 @@ namespace course_marketplace.Pages
 
             Course = await _context.Courses
                 .Include(c => c.CourseContents)
-                .ThenInclude(cc => cc.Content)
                 .FirstOrDefaultAsync(m => m.CourseId == id && m.CreatorId == userId);
 
             if (Course == null)
@@ -66,7 +65,7 @@ namespace course_marketplace.Pages
                 }
             }
 
-            return RedirectToPage("/MyCourses");
+            return RedirectToPage("/User/MyCourses");
         }
 
         public async Task<IActionResult> OnPostDeleteContentAsync(int id)
