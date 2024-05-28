@@ -1,0 +1,56 @@
+@page
+@model course_marketplace.Pages.MyCoursesModel
+@{
+    ViewData["Title"] = "My Courses";
+}
+
+@if (User.IsInRole("seller"))
+{
+    <h1>My Courses</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in Model.OwnedCourses)
+            {
+                <tr>
+                    <td>@course.Title</td>
+                    <td>@course.Description</td>
+                    <td>@course.Price.ToString("C")</td>
+                    <td>
+                        <a asp-page="/EditCourse" asp-route-id="@course.CourseId" class="btn btn-primary">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1>Enrolled Courses</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in Model.EnrolledCourses)
+            {
+                <tr>
+                    <td>@course.Title</td>
+                    <td>@course.Description</td>
+                    <td>@course.Price.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

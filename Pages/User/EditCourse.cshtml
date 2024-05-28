@@ -1,0 +1,54 @@
+@page "{id:int}"
+@model course_marketplace.Pages.EditCourseModel
+@{
+    ViewData["Title"] = "Edit Course";
+}
+
+<h1>Edit Course</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Course.Title"></label>
+        <input asp-for="Course.Title" class="form-control" />
+        <span asp-validation-for="Course.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Course.Description"></label>
+        <input asp-for="Course.Description" class="form-control" />
+        <span asp-validation-for="Course.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Course.Price"></label>
+        <input asp-for="Course.Price" class="form-control" />
+        <span asp-validation-for="Course.Price" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+<h2>Course Contents</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var content in Model.Course.CourseContents)
+        {
+            <tr>
+                <td>@content.Title</td>
+                <td>@content.Type</td>
+                <td>
+                    <a asp-page="/EditContent" asp-route-id="@content.ContentId" class="btn btn-secondary">Edit</a>
+                    <form method="post" asp-page-handler="DeleteContent" asp-route-id="@content.ContentId" style="display:inline">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-page="/AddContent" asp-route-courseId="@Model.Course.CourseId" class="btn btn-success">Add Content</a>
