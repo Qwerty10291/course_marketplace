@@ -43,4 +43,6 @@ public class CourseContent
     
     [Required]
     public string Content {get; set;}
+
+    public ICollection<FileModel> ContentFiles{get;set;}
 }

@@ -13,6 +13,7 @@ public class ApplicationDbContext : IdentityDbContext<User>
     public DbSet<Course> Courses { get; set; }
     public DbSet<UserCourse> UserCourses { get; set; }
     public DbSet<CourseContent> CourseContents {get; set;}
+    public DbSet<FileModel> FileModel {get;set;}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -36,6 +37,11 @@ public class ApplicationDbContext : IdentityDbContext<User>
             .HasMany(ccc => ccc.CourseContents)
             .WithOne(cc => cc.Course)
             .HasForeignKey(ccc => ccc.CourseId);
+        
+        modelBuilder.Entity<CourseContent>()
+            .HasMany(cc => cc.ContentFiles)
+            .WithOne(fm => fm.CourseContent)
+            .HasForeignKey(fm => fm.CourseContentId);
 
 
         var admin = new IdentityRole("admin");

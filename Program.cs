@@ -34,5 +34,6 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapControllerRoute("files", "{controller=FileController}/{action=GetFile}/{id?}");
 
 app.Run();

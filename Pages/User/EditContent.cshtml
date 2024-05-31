@@ -6,6 +6,10 @@
 
 <h1>Edit Content</h1>
 
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+
 <form method="post">
     <div class="form-group">
         <label asp-for="Content.Title"></label>
@@ -14,9 +18,48 @@
     </div>
     <div class="form-group">
         <label asp-for="Content.Content"></label>
-        <textarea asp-for="Content.Content" class="form-control"></textarea>
+        <textarea asp-for="Content.Content" id="markdown-editor" class="form-control"></textarea>
         <span asp-validation-for="Content.Content" class="text-danger"></span>
     </div>
     <input hidden asp-for="Content.ContentId"/>
     <button type="submit" class="btn btn-primary">Save</button>
 </form>
+
+<h2>Upload Files</h2>
+<form method="post" enctype="multipart/form-data" asp-page-handler="UploadFile">
+    <div class="form-group">
+        <label for="file">Select file to upload</label>
+        <input type="file" class="form-control-file" id="file" name="file" />
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+
+<h2>Uploaded Files</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var file in Model.Files)
+        {
+            <tr>
+                <td><a href="/Files/@file.Id">@file.FileName</a></td>
+                <td>
+                    <button class="btn btn-secondary" onclick="copyPath('/Files/@file.Id')">Copy Link</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+function copyPath(path) {
+    navigator.clipboard.writeText(`${window.origin}${path}`)
+}
+var simplemde = new SimpleMDE({
+    element: document.getElementById("markdown-editor")
+});
+</script>
